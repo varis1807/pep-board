@@ -1,6 +1,4 @@
 
-
-
 const body = document.querySelector("body");
 function createSticky() {
   const writingPad = createBox();

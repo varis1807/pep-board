@@ -1,14 +1,19 @@
 // server side
 const express = require("express");
+
 // express server
 const app = express();
+
 //  nodejs
 const server = require("http").Server(app);
+
 // nodejs => socket enabled
 const path = require("path");
 const io = require("socket.io")(server);
+
 // serve static assets to client
 app.use(express.static("public"));
+
 // server
 io.on("connection", function(socket) {
   socket.on("size", function(size) {
@@ -51,6 +56,7 @@ io.on("connection", function(socket) {
  });
 
 });
+
 // nodejs server
 const port = process.env.PORT || 3000;
 server.listen(port, function(req, res) {

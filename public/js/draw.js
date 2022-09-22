@@ -1,6 +1,6 @@
 let isMouseDown = false;
 
-board.addEventListener("mousedown", function(e) {
+board.addEventListener("mousedown", function (e) {
   ctx.beginPath();
   let top = getLocation();
   ctx.moveTo(e.clientX, e.clientY - top);
@@ -11,7 +11,7 @@ board.addEventListener("mousedown", function(e) {
     y: e.clientY - top,
     identifier: "mousedown",
     color: ctx.strokeStyle,
-    width: ctx.lineWidth
+    width: ctx.lineWidth,
   };
 
   undoStack.push(point);
@@ -21,7 +21,7 @@ board.addEventListener("mousedown", function(e) {
 });
 // mmousedown x,y beginPath,moveTo(x,y),color,size
 // mouseMove=> x1,y1, lineTo,stroke
-board.addEventListener("mousemove", function(e) {
+board.addEventListener("mousemove", function (e) {
   if (isMouseDown == true) {
     // console.log(ctx);
     let top = getLocation();
@@ -33,14 +33,14 @@ board.addEventListener("mousemove", function(e) {
       y: e.clientY - top,
       identifier: "mousemove",
       color: ctx.strokeStyle,
-      width: ctx.lineWidth
+      width: ctx.lineWidth,
     };
     undoStack.push(point);
     socket.emit("mousemove", point);
   }
 });
 
-board.addEventListener("mouseup", function(e) {
+board.addEventListener("mouseup", function (e) {
   isMouseDown = false;
 });
 
@@ -49,21 +49,21 @@ const redo = document.querySelector(".redo");
 
 let interval = null;
 
-undo.addEventListener("mousedown", function() {
-  interval = setInterval(function() {
+undo.addEventListener("mousedown", function () {
+  interval = setInterval(function () {
     if (undoMaker()) socket.emit("undo");
   }, 50);
 });
 
-undo.addEventListener("mouseup", function() {
+undo.addEventListener("mouseup", function () {
   clearInterval(interval);
 });
-redo.addEventListener("mousedown", function() {
-  interval = setInterval(function() {
+redo.addEventListener("mousedown", function () {
+  interval = setInterval(function () {
     if (redoMaker()) socket.emit("redo");
   }, 50);
 });
-redo.addEventListener("mouseup", function() {
+redo.addEventListener("mouseup", function () {
   clearInterval(interval);
 });
 
@@ -88,4 +88,3 @@ function getLocation() {
   const { top } = board.getBoundingClientRect();
   return top;
 }
-

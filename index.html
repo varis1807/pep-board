@@ -16,6 +16,7 @@
 
 
 <body>
+    
     <!-- canvas Tag -->
     <div class="combined">
         
@@ -26,6 +27,7 @@
                 <span class="line"></span>
             </div>
             <div class="tool-panel add-animation">
+
                 <div class="tool active">
                     <img src="public/NewIcons/Black_Pencil.svg" class="tool-img " id="pencil-img" alt=""
                         onclick="handleLocaltoolChange('pencil')">
@@ -41,6 +43,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="tool eraser">
                     <img src="public/NewIcons/Eraser.svg" alt="" class="tool-img" id="eraser-img"
                         onclick="handleLocaltoolChange('eraser')">
@@ -74,18 +77,18 @@
                     <img src="public/./NewIcons/zoom_out.png" alt="" class="tool-img zoom-out">
                 </div>
             </div>
-            <div class="clientControl">
+            <!-- <div class="clientControl">
                 <button class="annotation btn">Annotation</button>
                 <button class="takepermission"><img src="public/./NewIcons/takePermission.png" alt="Take Permission"></button>
-            </div>
+            </div> -->
         </div>
         <!-- notes dom create -->
         <canvas class="board">
         </canvas>
-        <div class="hostControls">
+        <!-- <div class="hostControls">
             <button class="permission btn"><span>&#8367</span></button>
             <button class="stop btn">Stop</button>
-        </div>
+        </div> -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js" crossorigin></script>
     <script src="public/./js/utilities/common.js"></script>
